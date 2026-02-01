@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated background elements -->
+    <div class="background-atmosphere">
+        <div class="atmosphere-orb orb-1"></div>
+        <div class="atmosphere-orb orb-2"></div>
+        <div class="atmosphere-orb orb-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <h1 class="app-title">Weather</h1>
+            <p class="app-subtitle">Current conditions and forecast</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <form id="search-form" class="search-form">
+                <div class="search-input-wrapper">
+                    <input type="text" id="city-input" class="city-input" placeholder="Enter city name..."
+                        autocomplete="off" required />
+                    <button type="submit" id="search-btn" class="search-btn">
+                        <span class="btn-text">Search</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Current Weather Display -->
+        <main class="weather-main">
+            <!-- Initially hidden, shown when data loads -->
+            <div id="weather-display" class="weather-display hidden">
+
+                <!-- Location Info -->
+                <div class="location-info">
+                    <h2 id="location-name" class="location-name"><!-- City, Country --></h2>
+                    <p id="current-date" class="current-date"><!-- Date --></p>
+                </div>
+
+                <!-- Main Weather Card -->
+                <div class="weather-card">
+                    <div class="weather-primary">
+                        <div class="weather-icon-container">
+                            <!-- Weather icon goes here -->
+                            <div id="weather-icon" class="weather-icon"></div>
+                        </div>
+                        <div class="temperature-container">
+                            <span id="temperature" class="temperature"><!-- 72° --></span>
+                            <span class="temperature-unit">°C</span>
+                        </div>
+                    </div>
+
+                    <div class="weather-description-container">
+                        <p id="weather-description" class="weather-description"><!-- Clear sky --></p>
+                        <p id="feels-like" class="feels-like"><!-- Feels like 70° --></p>
+                    </div>
+
+                    <!-- Weather Details Grid -->
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span id="humidity" class="detail-value"><!-- 65% --></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind Speed</span>
+                            <span id="wind-speed" class="detail-value"><!-- 12 km/h --></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pressure</span>
+                            <span id="pressure" class="detail-value"><!-- 1013 hPa --></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Visibility</span>
+                            <span id="visibility" class="detail-value"><!-- 10 km --></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state hidden">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Fetching weather data...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="error-state hidden">
+                <div class="error-icon">⚠</div>
+                <p id="error-message" class="error-message"><!-- Error message --></p>
+            </div>
+
+            <!-- Empty State (shown initially) -->
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">🌤</div>
+                <p class="empty-text">Search for a city to view weather conditions</p>
+            </div>
+        </main>
+
+        <!-- Forecast Section -->
+        <section id="forecast-section" class="forecast-section hidden">
+            <h3 class="forecast-title">5-Day Forecast</h3>
+            <div id="forecast-container" class="forecast-container">
+                <!-- Forecast cards will be inserted here by JS -->
+                <!-- Example structure for each day:
+                <div class="forecast-card">
+                    <p class="forecast-day">Monday</p>
+                    <div class="forecast-icon"></div>
+                    <div class="forecast-temp">
+                        <span class="temp-high">24°</span>
+                        <span class="temp-low">18°</span>
+                    </div>
+                    <p class="forecast-condition">Sunny</p>
+                </div>
+                -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p class="footer-text">Weather data provided by API</p>
+        </footer>
+    </div>
+
+    <script type="module" src="dist/main.js"></script>
+</body>
+
+</html>
